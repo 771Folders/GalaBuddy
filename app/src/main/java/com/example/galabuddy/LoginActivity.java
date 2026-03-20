@@ -36,12 +36,26 @@ public class LoginActivity extends AppCompatActivity {
             String username = binding.usernameInput.getText().toString();
             String password = binding.passwordInput.getText().toString();
 
+            binding.usernameLayout.setErrorEnabled(false);
+            binding.passwordLayout.setErrorEnabled(false);
+
             if (username.isEmpty() || password.isEmpty()) {
+                if (username.isEmpty()) {
+                    binding.usernameLayout.setErrorEnabled(true);
+                    binding.usernameLayout.setError("This is required");
+                }
+                if (password.isEmpty()) {
+                    binding.passwordLayout.setErrorEnabled(true);
+                    binding.passwordLayout.setError("This is required");
+                }
                 Toast.makeText(this, "Please fill in all fields!", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            if (db.login(username, password)) {
+            Account account = db.login(username, password);
+
+            if (account != null) {
+                PreferenceUtil.loggedUser = account;
                 startActivity(new Intent(this, MainActivity.class));
             } else {
                 Toast.makeText(this, "Username or Password is Incorrect!", Toast.LENGTH_SHORT).show();

@@ -30,5 +30,27 @@ public class MainActivity extends AppCompatActivity {
                 .setReorderingAllowed(true)
                 .replace(R.id.fragmentContainer, new MapsFragment())
                 .commit();
+
+        binding.bottomNav.setOnItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.nav_home) {
+                getSupportFragmentManager().beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.fragmentContainer, new MapsFragment())
+                        .commit();
+            }
+            if (item.getItemId() == R.id.nav_saved) {
+                getSupportFragmentManager().beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.fragmentContainer, new SavedFragment())
+                        .commit();
+            }
+            if (item.getItemId() == R.id.nav_settings) {
+                getSupportFragmentManager().beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.fragmentContainer, new SettingsFragment())
+                        .commit();
+            }
+            return true;
+        });
     }
 }

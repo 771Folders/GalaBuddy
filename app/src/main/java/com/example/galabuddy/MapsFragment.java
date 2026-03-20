@@ -75,7 +75,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                 );
 
                 mMap.animateCamera(
-                        CameraUpdateFactory.newLatLngZoom(userLocation, 15)
+                        CameraUpdateFactory.newLatLngZoom(userLocation, 19)
                 );
             }
         });

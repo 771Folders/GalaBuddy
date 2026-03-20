@@ -15,32 +15,23 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_gravity="center"
-            android:background="#65a2e7" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="sans-serif-black"
-            android:shadowColor="#65a2e7"
-            android:shadowDx="2"
-            android:shadowDy="2"
-            android:shadowRadius="3"
-            android:text="GalaBuddy"
-            android:textColor="#137BE8"
-            android:textSize="38sp" />
+            android:src="@drawable/logo" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/usernameLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:hint="Username"
             android:textColorHint="#999"
             app:boxBackgroundColor="#FEFEFE"
+            app:boxStrokeErrorColor="@color/design_default_color_error"
+            app:errorTextColor="@color/design_default_color_error"
+            app:errorEnabled="false"
             app:boxStrokeColor="#999"
             app:hintTextColor="#999">
 
@@ -48,11 +39,15 @@
                 android:id="@+id/usernameInput"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:inputType="text"
+                android:maxLines="1"
+                android:imeOptions="actionNext"
                 android:textColor="#000000" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50dp"
@@ -60,6 +55,7 @@
             android:hint="Password"
             android:textColorHint="#999"
             app:boxBackgroundColor="#FEFEFE"
+            app:errorEnabled="false"
             app:boxStrokeColor="#999"
             app:hintTextColor="#999"
             app:passwordToggleEnabled="true">
@@ -68,14 +64,16 @@
                 android:id="@+id/passwordInput"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:password="true"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:imeOptions="actionDone"
                 android:textColor="#000000" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/signInBtn"
-            android:layout_width="160dp"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="24dp"
@@ -85,12 +83,12 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/registerBtn"
             style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="160dp"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Create an Account"
             android:textColor="#137BE8"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:strokeColor="@android:color/transparent" />
 
     </LinearLayout>
